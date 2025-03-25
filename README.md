@@ -1,4 +1,4 @@
-# X3D Formatter for VS Code
+# X3D and VRML Formatter for VS Code
 
 This extension adds formatting to X3D and VRML.
 
