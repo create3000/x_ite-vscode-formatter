@@ -41,46 +41,28 @@ async function format (document, range, options = { insertSpaces: true, tabSize:
 // your extension is activated the very first time the command is executed
 function activate (context)
 {
-	context .subscriptions .push (vscode .languages .registerDocumentFormattingEditProvider ("X3D",
+	for (const encoding of ["X3D", "VRML", "XML", "JSON"])
 	{
-		provideDocumentFormattingEdits: (document, options, token) =>
+		context .subscriptions .push (vscode .languages .registerDocumentFormattingEditProvider (encoding,
 		{
-			return format (document, null, options);
-		},
-	}));
+			provideDocumentFormattingEdits: (document, options, token) =>
+			{
+				return format (document, null, options);
+			},
+		}));
 
-	context .subscriptions .push (vscode .languages .registerDocumentRangeFormattingEditProvider ("X3D",
-	{
-		provideDocumentRangeFormattingEdits: (document, range, options, token) =>
-		{
-			const
-				start = new vscode .Position(0, 0),
-				end   = new vscode .Position (document .lineCount - 1, document .lineAt (document .lineCount - 1) .text .length);
+		// context .subscriptions .push (vscode .languages .registerDocumentRangeFormattingEditProvider (encoding,
+		// {
+		// 	provideDocumentRangeFormattingEdits: (document, range, options, token) =>
+		// 	{
+		// 		const
+		// 			start = new vscode .Position(0, 0),
+		// 			end   = new vscode .Position (document .lineCount - 1, document .lineAt (document .lineCount - 1) .text .length);
 
-			return format(document, new vscode .Range (start, end), options)
-		},
-	}));
-
-
-	context .subscriptions .push (vscode .languages .registerDocumentFormattingEditProvider ("VRML",
-	{
-		provideDocumentFormattingEdits: (document, options, token) =>
-		{
-			return format (document, null, options);
-		},
-	}));
-
-	context .subscriptions .push (vscode .languages .registerDocumentRangeFormattingEditProvider ("VRML",
-	{
-		provideDocumentRangeFormattingEdits: (document, range, options, token) =>
-		{
-			const
-				start = new vscode .Position(0, 0),
-				end   = new vscode .Position (document .lineCount - 1, document .lineAt (document .lineCount - 1) .text .length);
-
-			return format(document, new vscode .Range (start, end), options)
-		},
-	}));
+		// 		return format (document, new vscode .Range (start, end), options)
+		// 	},
+		// }));
+	}
 }
 
 module .exports = {

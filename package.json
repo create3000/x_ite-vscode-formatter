@@ -60,7 +60,9 @@
 	],
 	"activationEvents": [
 		"onLanguage:X3D",
-		"onLanguage:VRML"
+		"onLanguage:VRML",
+		"onLanguage:xml",
+		"onLanguage:json"
 	],
 	"capabilities": {
 		"virtualWorkspaces": true
