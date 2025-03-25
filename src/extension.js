@@ -6,7 +6,7 @@ const
 
 async function format (document, range, options = { insertSpaces: true, tabSize: 2 })
 {
-	if (range === null || true)
+	if (!range)
 	{
 		// Format full document.
 
