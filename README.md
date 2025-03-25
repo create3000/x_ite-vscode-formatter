@@ -7,4 +7,4 @@ This extension adds formatting to X3D and VRML.
 
 ## License
 
-[MIT](LICENSE)
+[GPLv3](LICENSE.md)
