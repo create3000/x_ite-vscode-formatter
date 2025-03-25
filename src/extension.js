@@ -41,7 +41,7 @@ async function format (document, range, options = { insertSpaces: true, tabSize:
 // your extension is activated the very first time the command is executed
 function activate (context)
 {
-	for (const encoding of ["X3D", "VRML", "XML", "JSON"])
+	for (const encoding of ["X3D", "VRML"])
 	{
 		context .subscriptions .push (vscode .languages .registerDocumentFormattingEditProvider (encoding,
 		{
