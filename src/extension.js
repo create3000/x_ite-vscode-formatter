@@ -26,11 +26,12 @@ async function format (document, range, options = { insertSpaces: true, tabSize:
 	// browser .setBrowserOption ("Mute",           true);
 
 	const
-		content   = document .getText (range),
-		scene     = await browser .createX3DFromString (content),
-		encoding  = { XML: "XML", JSON: "JSON", VRML: "VRML" } [scene .encoding] ?? "XML",
-		formatted = scene [`to${encoding}String`] () .trim () + "\n",
-		result    = [new vscode .TextEdit (range, formatted)];
+		content    = document .getText (range),
+		scene      = await browser .createX3DFromString (content),
+		encoding   = { XML: "XML", JSON: "JSON", VRML: "VRML" } [scene .encoding] ?? "XML",,
+		indentChar = options .insertSpaces ? " " .repeat (tabSize) : "\t",
+		formatted  = scene [`to${encoding}String`] ({ indentChar }) .trim () + "\n",
+		result     = [new vscode .TextEdit (range, formatted)];
 
 	browser .dispose ();
 
