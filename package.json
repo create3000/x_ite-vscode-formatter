@@ -1,5 +1,5 @@
 {
-	"name": "x_ite-vscode-formatter",
+	"name": "x-ite-vscode-formatter",
 	"publisher": "create3000",
 	"displayName": "X_ITE VS Code Formatter",
 	"description": "X3D and VRML Formatter for VS Code",
@@ -14,10 +14,10 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/create3000/x_ite-vscode-formatter.git"
+		"url": "https://github.com/create3000/x-ite-vscode-formatter.git"
 	},
 	"bugs": {
-		"url": "https://github.com/create3000/x_ite-vscode-formatter/issues"
+		"url": "https://github.com/create3000/x-ite-vscode-formatter/issues"
 	},
 	"keywords": [
 		"X3D",
