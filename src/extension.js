@@ -30,7 +30,7 @@ async function format (document, range, options = { insertSpaces: true, tabSize:
 		scene      = await browser .createX3DFromString (content),
 		encoding   = { XML: "XML", JSON: "JSON", VRML: "VRML" } [scene .encoding] ?? "XML",
 		indentChar = options .insertSpaces ? " " .repeat (options .tabSize) : "\t",
-		formatted  = scene [`to${encoding}String`] ({ indentChar }) .trim () + "\n",
+		formatted  = scene [`to${encoding}String`] ({ style: "COMPACT", indentChar }) .trim () + "\n",
 		result     = [new vscode .TextEdit (range, formatted)];
 
 	browser .dispose ();
