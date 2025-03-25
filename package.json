@@ -1,0 +1,68 @@
+{
+	"name": "vscode-x3d-formatter",
+	"publisher": "create3000",
+	"displayName": "VS Code X3D Formatter",
+	"description": "X3D Formatter for VS Code",
+	"version": "1.0.0",
+	"license": "GPL-3.0",
+	"icon": "images/icon.png",
+	"homepage": "https://create3000.github.io/x_ite/",
+	"author": {
+		"name": "Holger Seelig",
+		"email": "holger.seelig@gmail.com",
+		"url": "https://github.com/create3000"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/create3000/vscode-x3d-formatter.git"
+	},
+	"bugs": {
+		"url": "https://github.com/create3000/vscode-x3d-formatter/issues"
+	},
+	"keywords": [
+		"X3D",
+		"X3DV",
+		"X3DJ",
+		"VRML",
+		"WRL"
+	],
+	"galleryBanner": {
+		"color": "#383838",
+		"theme": "dark"
+	},
+	"sponsor": {
+		"url": "https://www.patreon.com/X_ITE"
+	},
+	"main": "./src/extension.js",
+	"scripts": {
+		"lint": "eslint .",
+		"pretest": "npm run lint",
+		"test": "vscode-test",
+		"release": "node build/release.js"
+	},
+	"devDependencies": {
+		"@types/mocha": "^10.0.10",
+		"@types/node": "22.13.5",
+		"@types/vscode": "^1.97.0",
+		"@vscode/test-cli": "^0.0.10",
+		"@vscode/test-electron": "^2.4.1",
+		"eslint": "^9.21.0",
+		"shell-tools": "^1.1.9"
+	},
+	"dependencies": {
+		"x_ite-node": "^1.0.37"
+	},
+	"engines": {
+		"vscode": "^1.93.0"
+	},
+	"categories": [
+		"Formatters"
+	],
+	"activationEvents": [
+		"onLanguage:X3D",
+		"onLanguage:VRML"
+	],
+	"capabilities": {
+		"virtualWorkspaces": true
+	}
+}
