@@ -4,10 +4,12 @@ const
 	vscode = require ("vscode"),
 	X3D    = require ("x_ite-node");
 
-async function format (document, range, options)
+async function format (document, range, options = { insertSpaces: true, tabSize: 2 })
 {
 	if (range === null || true)
 	{
+		// Format full document.
+
 		const
 			start = new vscode .Position (0, 0),
 			end   = new vscode .Position (document .lineCount - 1, document .lineAt (document .lineCount - 1) .text .length);
@@ -15,22 +17,22 @@ async function format (document, range, options)
 		range = new vscode .Range(start, end);
 	}
 
-	const content = document .getText (range);
-
-	if (!options)
-		options = { insertSpaces: true, tabSize: 4 };
-
    const
       canvas  = X3D .createBrowser (),
-      browser = canvas .browser,
-		scene   = await browser .createX3DFromString (content);
+      browser = canvas .browser;
+
+	browser .endUpdate ();
+	browser .setBrowserOption ("LoadUrlObjects", false);
+	// browser .setBrowserOption ("Mute",           true);
 
 	const
-		formatted = scene .toVRMLString (),
-		result    = [ ];
+		content   = document .getText (range),
+		scene     = await browser .createX3DFromString (content),
+		encoding  = { XML: "XML", JSON: "JSON", VRML: "VRML" } [scene .encoding] ?? "XML",
+		formatted = scene [`to${encoding}String`] (),
+		result    = [new vscode .TextEdit (range, formatted)];
 
-	if (formatted)
-		result .push (new vscode .TextEdit (range, formatted));
+	browser .dispose ();
 
 	return result;
 };
