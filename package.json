@@ -14,10 +14,10 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/create3000/vscode-x3d-formatter.git"
+		"url": "https://github.com/create3000/x_ite-vscode-formatter.git"
 	},
 	"bugs": {
-		"url": "https://github.com/create3000/vscode-x3d-formatter/issues"
+		"url": "https://github.com/create3000/x_ite-vscode-formatter/issues"
 	},
 	"keywords": [
 		"X3D",
