@@ -4,6 +4,13 @@ const
 	vscode = require ("vscode"),
 	X3D    = require ("x_ite-node");
 
+/**
+ *
+ * @param {vscode.TextDocument} document
+ * @param {vscode.Range} range
+ * @param {vscode.FormattingOptions} options
+ * @returns [vscode.TextEdit]
+ */
 async function format (document, range, options = { insertSpaces: true, tabSize: 2 })
 {
 	if (!range)
@@ -14,7 +21,7 @@ async function format (document, range, options = { insertSpaces: true, tabSize:
 			start = new vscode .Position (0, 0),
 			end   = new vscode .Position (document .lineCount - 1, document .lineAt (document .lineCount - 1) .text .length);
 
-		range = new vscode .Range(start, end);
+		range = new vscode .Range (start, end);
 	}
 
    const
@@ -38,8 +45,12 @@ async function format (document, range, options = { insertSpaces: true, tabSize:
 	return result;
 };
 
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
+// This method is called when your extension is activated
+// Your extension is activated the very first time the command is executed
+
+/**
+ * @param {vscode.ExtensionContext} context
+ */
 function activate (context)
 {
 	for (const encoding of ["X3D", "VRML"])
