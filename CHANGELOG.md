@@ -7,6 +7,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## [1.0.3]
 
 * Handle indentation settings
+* Updated icon
 
 ## [1.0.0]
 
