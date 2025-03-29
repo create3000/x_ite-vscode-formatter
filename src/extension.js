@@ -30,7 +30,7 @@ async function format (document, range, options = { insertSpaces: true, tabSize:
 
 	browser .endUpdate ();
 	browser .setBrowserOption ("LoadUrlObjects", false);
-	// browser .setBrowserOption ("Mute",           true);
+	browser .setBrowserOption ("Mute",           true);
 
 	const
 		content    = document .getText (range),
