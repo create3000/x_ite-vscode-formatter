@@ -10,7 +10,7 @@ This extension adds formatting to X3D and VRML. It is based on the [X_ITE X3D Br
 
 ## License
 
-MIT, see [LICENSE.md](LICENSE.md).
+This software is licensed under the [MIT License](LICENSE.md).
 
 ## See Also
 
