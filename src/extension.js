@@ -2,6 +2,10 @@
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require ("vscode");
 
+// Create output channel
+// const output = vscode .window .createOutputChannel ("X_ITE Formatter");
+// output .appendLine ("X_ITE Formatter started.");
+
 /**
  *
  * @param {vscode.TextDocument} document
@@ -24,9 +28,9 @@ async function format (document, range, options = { insertSpaces: true, tabSize:
 		range = new vscode .Range (start, end);
 	}
 
-   const
-      canvas  = X3D .createBrowser (),
-      browser = canvas .browser;
+	const
+		canvas  = X3D .createBrowser (),
+		browser = canvas .browser;
 
 	browser .endUpdate ();
 	browser .setBrowserOption ("LoadUrlObjects", false);
