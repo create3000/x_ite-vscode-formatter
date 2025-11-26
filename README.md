@@ -8,6 +8,13 @@ This extension adds formatting to X3D and VRML. It is based on the [X_ITE X3D Br
 * Open a X3D or VRML file in the editor (status bar should show `X3D` or `VRML` as mode).
 * Use command `Format Document`.
 
+## Prerequisites
+
+Install one of these extensions for VRML Classic Encoding:
+
+* https://marketplace.visualstudio.com/items?itemName=kagamma.cge-x3d-vscode for X3DV (recommended)
+* https://marketplace.visualstudio.com/items?itemName=icetea78.wrl for VRML
+
 ## License
 
 This software is licensed under the [MIT License](LICENSE.md).
