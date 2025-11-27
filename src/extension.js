@@ -15,38 +15,38 @@ const vscode = require ("vscode");
  */
 async function format (document, range, options = { insertSpaces: true, tabSize: 2 })
 {
-	const X3D = require ("x_ite-node");
+   const X3D = require ("x_ite-node");
 
-	if (!range)
-	{
-		// Format full document.
+   if (!range)
+   {
+      // Format full document.
 
-		const
-			start = new vscode .Position (0, 0),
-			end   = new vscode .Position (document .lineCount - 1, document .lineAt (document .lineCount - 1) .text .length);
+      const
+         start = new vscode .Position (0, 0),
+         end   = new vscode .Position (document .lineCount - 1, document .lineAt (document .lineCount - 1) .text .length);
 
-		range = new vscode .Range (start, end);
-	}
+      range = new vscode .Range (start, end);
+   }
 
-	const
-		canvas  = X3D .createBrowser (),
-		browser = canvas .browser;
+   const
+      canvas  = X3D .createBrowser (),
+      browser = canvas .browser;
 
-	browser .endUpdate ();
-	browser .setBrowserOption ("LoadUrlObjects", false);
-	browser .setBrowserOption ("Mute",           true);
+   browser .endUpdate ();
+   browser .setBrowserOption ("LoadUrlObjects", false);
+   browser .setBrowserOption ("Mute",           true);
 
-	const
-		content    = document .getText (range),
-		scene      = await browser .createX3DFromString (content),
-		encoding   = { XML: "XML", JSON: "JSON", VRML: "VRML" } [scene .encoding] ?? "XML",
-		indentChar = options .insertSpaces ? " " .repeat (options .tabSize) : "\t",
-		formatted  = scene [`to${encoding}String`] ({ style: "COMPACT", indentChar }) .trim () + "\n",
-		result     = [new vscode .TextEdit (range, formatted)];
+   const
+      content    = document .getText (range),
+      scene      = await browser .createX3DFromString (content),
+      encoding   = { XML: "XML", JSON: "JSON", VRML: "VRML" } [scene .encoding] ?? "XML",
+      indentChar = options .insertSpaces ? " " .repeat (options .tabSize) : "\t",
+      formatted  = scene [`to${encoding}String`] ({ style: "COMPACT", indentChar }) .trim () + "\n",
+      result     = [new vscode .TextEdit (range, formatted)];
 
-	browser .dispose ();
+   browser .dispose ();
 
-	return result;
+   return result;
 };
 
 // This method is called when your extension is activated
@@ -57,31 +57,31 @@ async function format (document, range, options = { insertSpaces: true, tabSize:
  */
 function activate (context)
 {
-	for (const encoding of ["X3D", "VRML"])
-	{
-		context .subscriptions .push (vscode .languages .registerDocumentFormattingEditProvider (encoding,
-		{
-			provideDocumentFormattingEdits: (document, options, token) =>
-			{
-				return format (document, null, options);
-			},
-		}));
+   for (const encoding of ["X3D", "VRML"])
+   {
+      context .subscriptions .push (vscode .languages .registerDocumentFormattingEditProvider (encoding,
+      {
+         provideDocumentFormattingEdits: (document, options, token) =>
+         {
+            return format (document, null, options);
+         },
+      }));
 
-		// context .subscriptions .push (vscode .languages .registerDocumentRangeFormattingEditProvider (encoding,
-		// {
-		// 	provideDocumentRangeFormattingEdits: (document, range, options, token) =>
-		// 	{
-		// 		const
-		// 			start = new vscode .Position(0, 0),
-		// 			end   = new vscode .Position (document .lineCount - 1, document .lineAt (document .lineCount - 1) .text .length);
+      // context .subscriptions .push (vscode .languages .registerDocumentRangeFormattingEditProvider (encoding,
+      // {
+      //    provideDocumentRangeFormattingEdits: (document, range, options, token) =>
+      //    {
+      //       const
+      //          start = new vscode .Position(0, 0),
+      //          end   = new vscode .Position (document .lineCount - 1, document .lineAt (document .lineCount - 1) .text .length);
 
-		// 		return format (document, new vscode .Range (start, end), options)
-		// 	},
-		// }));
-	}
+      //       return format (document, new vscode .Range (start, end), options)
+      //    },
+      // }));
+   }
 }
 
 module .exports = {
-	format,
-	activate,
+   format,
+   activate,
 };
