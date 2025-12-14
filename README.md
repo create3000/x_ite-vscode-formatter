@@ -12,8 +12,8 @@ This extension adds formatting to X3D and VRML. It is based on the [X_ITE X3D Br
 
 Install one of these extensions for X3D VRML Classic Encoding:
 
-* https://marketplace.visualstudio.com/items?itemName=kagamma.cge-x3d-vscode for X3DV (recommended)
-* https://marketplace.visualstudio.com/items?itemName=icetea78.wrl for VRML
+* [Kagama X3D Classic VRML Encoding](https://marketplace.visualstudio.com/items?itemName=kagamma.cge-x3d-vscode) for X3DV (recommended)
+* [Icetea78 VRML 2.0](https://marketplace.visualstudio.com/items?itemName=icetea78.wrl) for VRML
 
 ## License
 
