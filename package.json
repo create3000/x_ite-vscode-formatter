@@ -3,7 +3,7 @@
 	"publisher": "create3000",
 	"displayName": "X_ITE VS Code Formatter",
 	"description": "X3D and VRML Formatter for VS Code",
-	"version": "1.0.17",
+	"version": "2.0.0",
 	"license": "MIT",
 	"icon": "images/icon.png",
 	"homepage": "https://create3000.github.io/x_ite/",
