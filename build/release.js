@@ -9,7 +9,7 @@ function bump ()
 
 	console .log (`Current version ${current}`);
 
-   const last = sh (`ls *.vsix`) .trim () .match (/(\d+\.\d+\.\d+)/) ?.[1];
+   const last = false && sh (`ls *.vsix`) .trim () .match (/(\d+\.\d+\.\d+)/) ?.[1];
 
    if (current !== last)
       return;
@@ -57,7 +57,7 @@ function main ()
 
    tags (version);
 
-   systemSync ("rm *.vsix");
+   // systemSync ("rm *.vsix");
    systemSync ("vsce package");
 	systemSync (`git push origin`);
 
