@@ -6,11 +6,11 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [1.0.4]
 
-* Handle indentation settings
+* Handle indentation settings.
 
 ## [1.0.3]
 
-* Updated icon
+* Updated icon.
 
 ## [1.0.0]
 
