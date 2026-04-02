@@ -52,11 +52,9 @@
   "dependencies": {
     "x_ite-node": "^2.0.10"
   },
-  "extensionDependencies": [
-    "create3000.x3d-vscode-syntax-highlighting"
-  ],
   "extensionPack": [
-    "create3000.x-ite-vscode"
+    "create3000.x-ite-vscode",
+    "create3000.x3d-vscode-syntax-highlighting"
   ],
   "engines": {
     "vscode": "^1.93.0"
