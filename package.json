@@ -55,6 +55,9 @@
   "extensionDependencies": [
     "create3000.x3d-vscode-syntax-highlighting"
   ],
+  "extensionPack": [
+    "create3000.x-ite-vscode"
+  ],
   "engines": {
     "vscode": "^1.93.0"
   },
