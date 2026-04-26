@@ -50,7 +50,7 @@
     "shell-tools": "^1.1.9"
   },
   "dependencies": {
-    "x_ite-node": "^2.0.10"
+    "x_ite-node": "^2.0.14"
   },
   "extensionPack": [
     "create3000.x-ite-vscode",
