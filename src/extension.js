@@ -57,7 +57,7 @@ async function format (document, range, options = { insertSpaces: true, tabSize:
  */
 function activate (context)
 {
-   for (const encoding of ["X3D", "VRML"])
+   for (const encoding of ["x3d", "x3dv", "x3dj", "vrml"])
    {
       context .subscriptions .push (vscode .languages .registerDocumentFormattingEditProvider (encoding,
       {

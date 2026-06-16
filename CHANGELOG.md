@@ -4,6 +4,10 @@ All notable changes to the "x-ite-vscode-formatter" extension will be documented
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [2.0.8]
+
+* Fixed activation languages.
+
 ## [1.0.4]
 
 * Handle indentation settings.
