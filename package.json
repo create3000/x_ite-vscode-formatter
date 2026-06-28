@@ -45,14 +45,14 @@
     "@types/mocha": "^10.0.10",
     "@types/node": "25.9.3",
     "@types/vscode": "^1.93.0",
-    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-cli": "^0.0.15",
     "@vscode/test-electron": "^3.0.0",
-    "eslint": "^10.5.0",
-    "globals": "^17.6.0",
+    "eslint": "^10.6.0",
+    "globals": "^17.7.0",
     "shell-tools": "^1.1.9"
   },
   "dependencies": {
-    "x_ite-node": "^2.0.28"
+    "x_ite-node": "^2.0.30"
   },
   "extensionPack": [
     "create3000.x-ite-vscode",
@@ -72,5 +72,8 @@
   ],
   "capabilities": {
     "virtualWorkspaces": true
+  },
+  "allowScripts": {
+    "skia-canvas@3.0.8": true
   }
 }
