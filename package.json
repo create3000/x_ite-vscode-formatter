@@ -47,12 +47,12 @@
     "@types/vscode": "^1.93.0",
     "@vscode/test-cli": "^0.0.15",
     "@vscode/test-electron": "^3.0.0",
-    "eslint": "^10.6.0",
+    "eslint": "^10.7.0",
     "globals": "^17.7.0",
     "shell-tools": "^1.1.9"
   },
   "dependencies": {
-    "x_ite-node": "^2.0.30"
+    "x_ite-node": "^2.0.34"
   },
   "extensionPack": [
     "create3000.x-ite-vscode",
