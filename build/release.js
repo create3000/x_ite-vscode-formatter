@@ -5,20 +5,27 @@ const { systemSync, sh } = require ("shell-tools");
 
 function bump ()
 {
-	const current = sh (`npm pkg get version | sed 's/"//g'`) .trim ();
+	try
+	{
+		const current = sh (`npm pkg get version | sed 's/"//g'`) .trim ();
 
-	console .log (`Current version ${current}`);
+		console .log (`Current version ${current}`);
 
-   const last = sh (`ls *.vsix`) .trim () .match (/(\d+\.\d+\.\d+)/) ?.[1];
+		const last = sh (`ls *.vsix`) .trim () .match (/(\d+\.\d+\.\d+)/) ?.[1];
 
-   if (current !== last)
-      return;
+		if (current !== last)
+			return;
 
-	systemSync (`npm version patch --no-git-tag-version --force`);
+		systemSync (`npm version patch --no-git-tag-version --force`);
 
-   const version = sh (`npm pkg get version | sed 's/"//g'`) .trim ();
+		const version = sh (`npm pkg get version | sed 's/"//g'`) .trim ();
 
-	console .log (`New version ${version}`);
+		console .log (`New version ${version}`);
+	}
+	catch (error)
+	{
+		console .warn (error .message);
+	}
 }
 
 function tags (version)
