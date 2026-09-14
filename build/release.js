@@ -15,17 +15,17 @@ function bump ()
 
 		if (current !== last)
 			return;
-
-		systemSync (`npm version patch --no-git-tag-version --force`);
-
-		const version = sh (`npm pkg get version | sed 's/"//g'`) .trim ();
-
-		console .log (`New version ${version}`);
 	}
 	catch (error)
 	{
 		console .warn (error .message);
 	}
+
+	systemSync (`npm version patch --no-git-tag-version --force`);
+
+	const version = sh (`npm pkg get version | sed 's/"//g'`) .trim ();
+
+	console .log (`New version ${version}`);
 }
 
 function tags (version)
