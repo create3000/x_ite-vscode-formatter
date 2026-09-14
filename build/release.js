@@ -5,12 +5,12 @@ const { systemSync, sh } = require ("shell-tools");
 
 function bump ()
 {
+	const current = sh (`npm pkg get version | sed 's/"//g'`) .trim ();
+
+	console .log (`Current version ${current}`);
+
 	try
 	{
-		const current = sh (`npm pkg get version | sed 's/"//g'`) .trim ();
-
-		console .log (`Current version ${current}`);
-
 		const last = sh (`ls *.vsix`) .trim () .match (/(\d+\.\d+\.\d+)/) ?.[1];
 
 		if (current !== last)
